@@ -12,27 +12,27 @@ export class MainInputScreenComponent implements OnInit {
 
   form: any;
   data: any;
-  apiUrl: any = '/insert/newSong/byUrl';
+  apiUrl: string = 'http://localhost:3000/insert/newSong/byUrl'; // Change this URL to your server's URL
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      field1: ['', Validators.required],
-      field2: ['', Validators.required],
-      // field3: ['', Validators.required],
-      // field4: ['', Validators.required],
-      // field5: ['', Validators.required],
+      url: ['', Validators.required],
+      displayName: ['', Validators.required],
     });
   }
 
   onSubmit() {
-    this.getData().subscribe((response) => {
+    this.postData(this.form.value).subscribe(response => {
       this.data = response;
+      console.log('Response:', response);
+    }, error => {
+      console.error('Error:', error);
     });
   }
 
-  getData(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}`);
+  postData(data: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, data);
   }
 }

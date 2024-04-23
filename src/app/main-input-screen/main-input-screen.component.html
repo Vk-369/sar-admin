@@ -1,12 +1,12 @@
 <form [formGroup]="form">
     <div class="form-group" >
       <label for="exampleInputEmail1">URl</label>
-      <input type="email" formControlName="field1"     class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter URl">
+      <input type="email" formControlName="url"     class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter URl">
       <small id="emailHelp" class="form-text text-muted">Enter a valid url.</small>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Meta Data</label>
-      <input type="password"formControlName="field2" class="form-control" id="exampleInputPassword1" placeholder="Meta Data">
+      <label for="exampleInputPassword1">Enter Display Name</label>
+      <input formControlName="displayName" class="form-control" id="exampleInputPassword1" placeholder="Meta Data">
     </div>
     <!-- <div class="form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
